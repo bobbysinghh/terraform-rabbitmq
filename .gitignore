@@ -29,7 +29,6 @@ override.tf.json
 # example: *tfplan*
 
 
-
   
 # ignored files
 *.tfstate
