@@ -29,5 +29,9 @@ variable "queue" {
 }
 
 variable "binding" {
-  type = map(string)
+  type = map(object({
+    source      = string
+    routing_key = string
+  }))
+
 }

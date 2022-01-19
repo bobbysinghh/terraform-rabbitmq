@@ -19,9 +19,9 @@ resource "rabbitmq_exchange" "test" {
   name     = each.key
   vhost    = rabbitmq_permissions.guest.vhost
   settings {
-    type        = each.value
-    durable     = true
-    auto_delete = false
+    type    = each.value
+    durable = true
+    # auto_delete = false
 
   }
   depends_on = [
@@ -46,11 +46,11 @@ resource "rabbitmq_queue" "test" {
 
 resource "rabbitmq_binding" "test" {
   for_each         = var.binding
-  source           = each.value
+  source           = each.value.source
   vhost            = rabbitmq_vhost.test[0].name
   destination      = each.key
   destination_type = "queue"
-  routing_key      = "#"
+  routing_key      = each.value.routing_key
   depends_on = [
     rabbitmq_exchange.test,
     rabbitmq_permissions.guest,
