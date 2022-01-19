@@ -1,3 +1,3 @@
-output "binding_details" {
-  value = module.binding.binding
-}
+# output "binding_details" {
+#   value = module.binding.binding
+# }

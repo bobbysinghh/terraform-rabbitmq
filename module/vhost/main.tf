@@ -21,3 +21,5 @@ resource "rabbitmq_permissions" "guest" {
     read      = lookup(var.permission, "read", ".*")
   }
 }
+
+
